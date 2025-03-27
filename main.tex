@@ -1,5 +1,12 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{tocloft}
+\usepackage[english]{babel}
+\usepackage{microtype}
+\hyphenpenalty=500
+\exhyphenpenalty=500
+\usepackage{colortbl} % for table coloring
+\usepackage{multirow}
+\usepackage{ragged2e}
 \usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -7,15 +14,17 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{fancyhdr}
+\usepackage{amssymb}  % assumes amsmath package installed
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{xcolor}
 \usepackage{amsmath}
-\DeclareMathSizes{12pt}{12pt}{12pt}{8pt}
 \makeatletter
 \renewcommand{\tagform@}[1]{%
   \maketag@@@{\textnormal{\fontsize{12pt}{12pt}\selectfont(#1)}}%
 }
 \AtBeginEnvironment{equation}{\fontsize{14}{14}\selectfont}
 \AtBeginEnvironment{align}{\fontsize{14}{14}\selectfont}
+
 \makeatother
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\contentsname}{}
@@ -38,6 +47,7 @@
 \usepackage{titlesec}
 
 
+
 \titleformat{\section}
   {\centering\fontsize{18pt}{18pt}\bfseries} 
   {Chapter \arabic{section}}            
@@ -45,12 +55,12 @@
   {}
 
 \titleformat{\subsection}[block]
-  {\raggedright\fontsize{16pt}{18pt}\bfseries}
+  {\justifying \setlength{\parindent}{2em}\fontsize{16pt}{18pt}\bfseries}
   {\thesubsection}{1em}{}
 
 
 \titleformat{\subsubsection}[block]
-  {\raggedright\fontsize{14pt}{18pt}}
+  {\justifying \setlength{\parindent}{2em}\fontsize{14pt}{18pt}}
   {\itshape\thesubsubsection}
   {1em}
   {}
@@ -75,7 +85,6 @@
     plainpages=false
 }
 \usepackage{cleveref}
-\usepackage[sort&compress]{cite}
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
 \addbibresource{ref.bib}  
 
@@ -190,7 +199,7 @@
 \clearpage
 \centering{
 \fontsize{18pt}{18pt}{\selectfont {\textbf{\section*{Abstract}}}}
-\raggedright
+\justifying \setlength{\parindent}{2em}
 \setlength{\parindent}{2em}
 Text text text text text text text text text text text text text text text text text text text text text text text text.
 
@@ -207,7 +216,7 @@ Text text text text text text text text text text text text text text text text 
 \clearpage
 \centering{
 \fontsize{18pt}{18pt}{\selectfont{\textbf{\section*{摘要}}}} 
-\raggedright                  
+\justifying \setlength{\parindent}{2em}                  
 \setlength{\parindent}{2em}   
 \begin{spacing}{2}
 \fontsize{14pt}{18pt}\selectfont{
@@ -223,7 +232,7 @@ Text text text text text text text text text text text text text text text text 
 \noindent\fontsize{14pt}{18pt}\selectfont{\textbf{關鍵詞：} 關鍵詞1；關鍵詞2；關鍵詞3；關鍵詞4；關鍵詞5}
 \addcontentsline{toc}{section}{摘要}
 
-
+\renewcommand{\contentsname}{}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsecfont}{\normalfont\fontsize{12}{14}\selectfont}
 \renewcommand{\cftsecpagefont}{\normalfont\fontsize{12}{14}\selectfont}
@@ -253,11 +262,13 @@ Text text text text text text text text text text text text text text text text 
 \addcontentsline{toc}{section}{Table of Contents}
 \tableofcontents 
 
+\renewcommand{\listfigurename}{}
 \clearpage
 \fontsize{18pt}{18pt}{\selectfont{\textbf{\section*{List of Figures}}}}
 \addcontentsline{toc}{section}{List of Figures}  
 \listoffigures
 
+\renewcommand{\listtablename}{}
 \clearpage
 \fontsize{18pt}{18pt}{\selectfont{\textbf{\section*{List of Tables}}}}
 \addcontentsline{toc}{section}{List of Tables}
@@ -276,7 +287,7 @@ Text text text text text text text text text text text text text text text text 
 \clearpage
 \pagenumbering{arabic}
 \setcounter{page}{1} 
-\raggedright                  
+\justifying \setlength{\parindent}{2em}                  
 \setlength{\parindent}{2em}  
 \section{Introduction}
 \subsection{Background and motivation}
