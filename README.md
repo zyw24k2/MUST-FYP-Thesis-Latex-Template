@@ -11,3 +11,9 @@ Macau University of Science and Technology Bachelor of Science Thesis Latex Temp
 如果使用自己的latex环境，也需要将编译器修改为XeLaTex。
 
 该模板正在尝试上传至Overleaf Gallery中...
+
+### 可能会遇到的问题
+
+1.繁体字部分需要直接在代码中输入繁体字，如果是简体字将无法识别
+
+2.行内公式的大小在未调整的情况下会比文字内容字体稍大，可对行内公式使用\\normalfont{}进行手动调整
